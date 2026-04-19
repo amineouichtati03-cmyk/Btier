@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ Btiers - لوحة ترتيب اللاعبين</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🏆 Btiers</h1>
+            <p class="subtitle">لوحة ترتيب اللاعبين المتقدمة</p>
+        </header>
+
+        <!-- Statistics -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <span class="stat-label">إجمالي اللاعبين</span>
+                <span class="stat-value" id="totalPlayers">0</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">إجمالي النقاط</span>
+                <span class="stat-value" id="totalPoints">0</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-label">أعلى نقطة</span>
+                <span class="stat-value" id="maxPoints">0</span>
+            </div>
+        </div>
+
+        <!-- Input Section -->
+        <div class="input-section">
+            <h2>إضافة لاعب جديد</h2>
+            <div class="form-group">
+                <input 
+                    type="text" 
+                    id="nameInput" 
+                    placeholder="اسم اللاعب" 
+                    class="input-field"
+                >
+                <input 
+                    type="number" 
+                    id="pointsInput" 
+                    placeholder="عدد النقاط" 
+                    class="input-field"
+                    min="0"
+                >
+                <button id="addBtn" class="btn btn-primary">إضافة ✚</button>
+            </div>
+        </div>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="🔍 ابحث عن لاعب..." 
+                class="input-field search-input"
+            >
+        </div>
+
+        <!-- Leaderboard -->
+        <div class="leaderboard-section">
+            <h2>🥇 لوحة الترتيب</h2>
+            <div id="leaderboard" class="leaderboard-list">
+                <p class="empty-message">لا توجد بيانات حتى الآن. أضف لاعبين لتبدأ! 🎮</p>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="actions-section">
+            <button id="exportBtn" class="btn btn-secondary">تصدير البيانات 📥</button>
+            <button id="clearBtn" class="btn btn-danger">مسح الكل ⚠️</button>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification"></div>
+
+    <!-- Modal for editing -->
+    <div id="editModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>تعديل البيانات</h3>
+            <input type="text" id="editName" class="input-field" placeholder="اسم اللاعب">
+            <input type="number" id="editPoints" class="input-field" placeholder="النقاط" min="0">
+            <div class="modal-buttons">
+                <button id="saveEditBtn" class="btn btn-primary">حفظ ✓</button>
+                <button id="cancelEditBtn" class="btn btn-secondary">إلغاء ✕</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
